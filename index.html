@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Emmanuel Kilonzo – Portfolio</title>
+  <style>
+    :root {
+      --primary: #d10077;
+      --primary-light: #f4c4f3;
+      --bg-gradient: linear-gradient(135deg, #f4c4f3, #fc67fa);
+      --text-dark: #1a1a1a;
+      --nav-bg: rgba(255,255,255,0.9);
+      --block-bg: #fff;
+      --highlight-bg: #fff0f6;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg-gradient);
+      color: var(--text-dark);
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+    nav {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      background: var(--nav-bg);
+      padding: 10px 0;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: bold;
+      position: relative;
+    }
+    nav a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+    nav a:hover { color: darken(var(--primary), 10%); }
+    .section {
+      max-width: 1000px;
+      margin: 100px auto 60px;
+      padding: 30px;
+      border-radius: 15px;
+      background: var(--block-bg);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    h1, h2 {
+      text-align: center;
+      color: #70004c;
+      margin-top: 0;
+    }
+    .block {
+      margin-top: 20px;
+      padding: 20px;
+      border: 2px solid #c92f96;
+      border-radius: 10px;
+      background: var(--highlight-bg);
+    }
+    .project {
+      margin: 15px 0;
+    }
+    .project h3 {
+      margin-bottom: 5px;
+      color: var(--primary);
+    }
+    .project a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .project a:hover {
+      text-decoration: underline;
+    }
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto‑fit,minmax(150px,1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+    .image-grid img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+    .image-grid img:hover {
+      transform: scale(1.05);
+    }
+    /* Lightbox */
+    #lightbox {
+      position: fixed;
+      top:0; left:0;
+      width:100%; height:100%;
+      background: rgba(0,0,0,0.8);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+    }
+    #lightbox img {
+      max-width:90%;
+      max-height:90%;
+      border-radius:8px;
+      box-shadow:0 0 20px rgba(255,255,255,0.2);
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #ffdbef;
+      color: #5c0054;
+      margin-top: 60px;
+    }
+    button.scroll-btn {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+    button.scroll-btn:hover {
+      background: #70004c;
+    }
+    @media(max-width:600px){
+      nav a { margin: 0 8px; font-size: 0.9rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="#about">About</a>
+  <a href="#projects">Projects</a>
+  <a href="#education">Education</a>
+  <a href="#skills">Skills</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section class="section" id="about">
+  <h1>Emmanuel Kilonzo</h1>
+  <div class="block">
+    <p>I’m a third‑year Statistics & Programming student at Kenyatta University. I build tools and solve real‑world problems using web technologies and data‑driven solutions.</p>
+  </div>
+  <div class="image-grid">
+    <!-- Add your profile images -->
+    <img src="profile1.jpg" alt="Profile image 1">
+    <img src="profile2.jpg" alt="Profile image 2">
+  </div>
+</section>
+
+<section class="section" id="projects">
+  <h2>Current &amp; Future Projects</h2>
+  <div class="block">
+    <div class="project">
+      <h3>Budget Tracker</h3>
+      <p>A budgeting tool for all expenses built using HTML and vanilla JS.
+to caterfor all budgeting needs.</p>
+      <a href="#">View Code</a>
+    </div>
+    <div class="project">
+      <h3>Portfolio Website</h3>
+      <p>This responsive and animated personal portfolio site.</p>
+      <a href="#">Live Demo</a>
+    </div>
+    <div class="project">
+      <h3>ScriptAlchemy YouTube Automation</h3>
+      <p>Exploring viral Shorts using automation to question dogmas.</p>
+      <a href="https://sites.google.com/view/therebelthinkerscriptalchemy/home" target="_blank">Visit</a>
+    </div>
+    <div class="image-grid">
+      <!-- Add screenshots -->
+      <img src="proj1.jpg" alt="Project 1 screenshot">
+      <img src="proj2.jpg" alt="Project 2 screenshot">
+      <img src="proj3.jpg" alt="Project 3 screenshot">
+    </div>
+  </div>
+</section>
+
+<section class="section" id="education">
+  <h2>Education</h2>
+  <div class="block">
+    <p><strong>BSc. Statistics &amp; Programming</strong><br>
+    Kenyatta University.</p>
+  </div>
+</section>
+
+<section class="section" id="skills">
+  <h2>Programming Languages &amp; Tools</h2>
+  <div class="block">
+    <ul>
+      <li>Python</li>
+      <li>JavaScript (Vanilla)</li>
+      <li>HTML &amp; CSS</li>
+      <li>C++</li>
+      <li>R</li>
+      <li>SQL</li>
+      <li>Java (Basics)</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <h2>Contact</h2>
+  <div class="block">
+    <p><strong>Email:</strong> kilonzoemmanuel@gmail.com</p>
+    <p><strong>GitHub:</strong> <a href="https://github.com/manuh9" target="_blank">manuh9</a></p>
+    <p><strong>Alt GitHub:</strong> <a href="https://github.com/mumbly6" target="_blank">mumbly6</a></p>
+    <p><strong>Portfolio Site:</strong> <a href="https://sites.google.com/view/therebelthinkerscriptalchemy/home" target="_blank">ScriptAlchemy</a></p>
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 Emmanuel Kilonzo
+</footer>
+
+<div id="lightbox" onclick="hideLightbox()">
+  <img id="lb-img" src="" alt="Expanded view">
+</div>
+
+<button class="scroll-btn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">↑ Top</button>
+
+<script>
+  // Scroll-triggered visibility
+  const sections = document.querySelectorAll('.section');
+  const navLinks = document.querySelectorAll('nav a');
+
+  function inViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return rect.top < window.innerHeight*0.85 && rect.bottom > 0;
+  }
+
+  function update() {
+    sections.forEach(sec => {
+      if (inViewport(sec)) sec.classList.add('visible');
+    });
+    // highlight nav
+    sections.forEach(sec => {
+      const id = sec.id;
+      const link = document.querySelector(`nav a[href="#${id}"]`);
+      if (inViewport(sec)) {
+        navLinks.forEach(a => a.classList.remove('active'));
+        if (link) link.classList.add('active');
+      }
+    });
+  }
+  window.addEventListener('scroll', update);
+  update();
+
+  // Lightbox for images
+  function hideLightbox() {
+    document.getElementById('lightbox').style.display = 'none';
+  }
+  document.querySelectorAll('.image-grid img').forEach(img => {
+    img.addEventListener('click', () => {
+      document.getElementById('lb-img').src = img.src;
+      document.getElementById('lightbox').style.display = 'flex';
+    });
+  });
+</script>
+
+</body>
+</html>
